@@ -3,7 +3,7 @@ import {countReducer} from "./count-reducer";
 
 
 const rootReducer = combineReducers({
-    count: countReducer
+    count: countReducer,
 })
 
 export const store = createStore(rootReducer)

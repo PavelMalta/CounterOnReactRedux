@@ -5,6 +5,8 @@ import {Setting} from "./component/Setting/Setting";
 
 
 function App() {
+
+
   return (
     <div className={s.app}>
         <Setting/>
