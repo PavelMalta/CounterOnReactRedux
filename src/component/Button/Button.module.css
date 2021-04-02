@@ -1,0 +1,16 @@
+.item button {
+    width: 100px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    background: rgba(230,137,102,.7);
+    box-shadow: 0 -3px rgba(230,137,102,1) inset;
+    transition: 0.2s;
+}
+.item button:hover { background: rgba(230,137,102, 1); }
+.item button:active {
+    background: rgba(230,137,102,.8);
+    box-shadow: 0 3px rgba(230,137,102,.8) inset;
+}

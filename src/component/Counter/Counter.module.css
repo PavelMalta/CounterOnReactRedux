@@ -1,7 +1,7 @@
 .counter {
     height: 400px;
     width: 500px;
-    border: 1px solid black;
+    border-radius: 30px;
     margin: 20px;
     background-color: #f6edd8;
 }
@@ -9,6 +9,7 @@
 .input_container {
     height: 58%;
     border: 1px solid black;
+    border-radius: 15px;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -24,6 +25,7 @@
 .button_container {
     height: 25%;
     border: 1px solid black;
+    border-radius: 15px;
     margin: 0 20px 20px 20px;
     display: flex;
     justify-content: center;

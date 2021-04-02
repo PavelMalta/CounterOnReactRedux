@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./Counter.module.css"
+import {Button} from "../Button/Button";
 
 export const Counter = () => {
     return (
@@ -16,7 +17,7 @@ export const Counter = () => {
 
             </div>
             <div className={s.button_container}>
-                    <button>set</button>
+                    <Button title={"set"}/>
             </div>
 
         </div>
