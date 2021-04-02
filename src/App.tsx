@@ -1,11 +1,13 @@
 import React from 'react';
-
-import './App.css';
+import s from "./App.module.css"
+import {Counter} from "./component/Counter/Counter";
+import {Setting} from "./component/Setting/Setting";
 
 function App() {
   return (
-    <div className="App">
-
+    <div className={s.app}>
+        <Counter/>
+        <Setting/>
     </div>
   );
 }
