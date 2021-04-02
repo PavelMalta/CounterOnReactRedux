@@ -3,11 +3,12 @@ import s from "./App.module.css"
 import {Counter} from "./component/Counter/Counter";
 import {Setting} from "./component/Setting/Setting";
 
+
 function App() {
   return (
     <div className={s.app}>
-        <Counter/>
         <Setting/>
+        <Counter/>
     </div>
   );
 }
