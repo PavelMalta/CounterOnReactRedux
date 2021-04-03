@@ -17,9 +17,13 @@
 }
 
 .count {
-    border: 1px solid black;
     height: 35%;
     width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: darkgray;
 }
 
 .button_container {
@@ -30,4 +34,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.error {
+    color: tomato;
+    font-size: 30px;
+    font-weight: bold;
 }

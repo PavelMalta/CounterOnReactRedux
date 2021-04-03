@@ -4,7 +4,7 @@ import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../state/store";
-import {setErrorAC, setMaxValueAC, setMinValueAC} from "../../state/count-reducer";
+import {setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from "../../state/count-reducer";
 
 export const Setting = () => {
     const maxValue = useSelector((state: AppRootStateType) => state.count.maxValue)
@@ -17,6 +17,9 @@ export const Setting = () => {
     }
     const setMinValue = (minValue: number) => {
         dispatch(setMinValueAC(minValue))
+    }
+    const setValue = () => {
+        dispatch(setValueAC(minValue))
     }
 
     if (maxValue <= minValue) {
@@ -45,7 +48,7 @@ export const Setting = () => {
 
             </div>
             <div className={s.button_container}>
-                    <Button title={"set"}/>
+                    <Button title={"set"} onClick={setValue}/>
             </div>
 
         </div>

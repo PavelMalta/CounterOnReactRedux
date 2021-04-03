@@ -1,6 +1,7 @@
 const initialState = {
     maxValue: 0 as number,
     minValue: 0 as number,
+    value: null as null | number,
     error: false as boolean
 }
 
@@ -14,6 +15,8 @@ export const countReducer = (state: InitialStateType = initialState, action: Act
             return {...state, minValue: action.minValue}
         case "SET-ERROR":
             return {...state, error: action.error}
+        case "SET-VALUE":
+            return {...state, value: action.value}
         default:
             return state
     }
@@ -22,6 +25,7 @@ export const countReducer = (state: InitialStateType = initialState, action: Act
 type ActionType = ReturnType<typeof setMaxValueAC>
     | ReturnType<typeof setMinValueAC>
     | ReturnType<typeof setErrorAC>
+    | ReturnType<typeof setValueAC>
 
 export const setMaxValueAC = (maxValue: number) => {
     return {type: 'SET-MAX-VALUE', maxValue} as const
@@ -31,4 +35,7 @@ export const setMinValueAC = (minValue: number) => {
 }
 export const setErrorAC = (error: boolean) => {
     return {type: 'SET-ERROR', error} as const
+}
+export const setValueAC = (value: number) => {
+    return {type: 'SET-VALUE', value} as const
 }
