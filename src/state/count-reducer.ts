@@ -23,6 +23,9 @@ export const countReducer = (state: InitialStateType = initialState, action: Act
                 newValue = newValue + 1
             }
             return {...state, value: newValue}
+        case "RESET-VALUE":
+            const resetValue = state.minValue
+            return {...state, value: resetValue}
         default:
             return state
     }
@@ -33,6 +36,7 @@ type ActionType = ReturnType<typeof setMaxValueAC>
     | ReturnType<typeof setErrorAC>
     | ReturnType<typeof setValueAC>
     | ReturnType<typeof setIncrementAC>
+    | ReturnType<typeof resetValueAC>
 
 export const setMaxValueAC = (maxValue: number) => {
     return {type: 'SET-MAX-VALUE', maxValue} as const
@@ -48,4 +52,7 @@ export const setValueAC = (value: number) => {
 }
 export const setIncrementAC = () => {
     return {type: 'SET-INCREMENT'} as const
+}
+export const resetValueAC = () => {
+    return {type: 'RESET-VALUE'} as const
 }

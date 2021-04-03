@@ -3,7 +3,7 @@ import { Button } from "../Button/Button";
 import s from "./Counter.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../state/store";
-import {setIncrementAC} from "../../state/count-reducer";
+import {resetValueAC, setIncrementAC} from "../../state/count-reducer";
 
 export const Counter = () => {
 
@@ -12,6 +12,7 @@ export const Counter = () => {
     const dispatch = useDispatch()
 
     const setIncrement = () => dispatch(setIncrementAC())
+    const resetValue = () => dispatch(resetValueAC())
 
     return (
         <div className={s.setting}>
@@ -22,7 +23,7 @@ export const Counter = () => {
             </div>
             <div className={s.button_container}>
                 <Button title={"inc"} onClick={setIncrement}/>
-                <Button title={"reset"}/>
+                <Button title={"reset"} onClick={resetValue}/>
             </div>
         </div>
     )
