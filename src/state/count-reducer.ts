@@ -2,7 +2,8 @@ const initialState = {
     maxValue: 0 as number,
     minValue: 0 as number,
     value: null as null | number,
-    error: false as boolean
+    error: false as boolean,
+    disabled: false as boolean
 }
 
 type InitialStateType = typeof initialState
@@ -26,6 +27,8 @@ export const countReducer = (state: InitialStateType = initialState, action: Act
         case "RESET-VALUE":
             const resetValue = state.minValue
             return {...state, value: resetValue}
+        case "DISABLED-BUTTON":
+            return {...state, disabled: action.disabled}
         default:
             return state
     }
@@ -37,6 +40,7 @@ type ActionType = ReturnType<typeof setMaxValueAC>
     | ReturnType<typeof setValueAC>
     | ReturnType<typeof setIncrementAC>
     | ReturnType<typeof resetValueAC>
+    | ReturnType<typeof disabledButtonAC>
 
 export const setMaxValueAC = (maxValue: number) => {
     return {type: 'SET-MAX-VALUE', maxValue} as const
@@ -55,4 +59,7 @@ export const setIncrementAC = () => {
 }
 export const resetValueAC = () => {
     return {type: 'RESET-VALUE'} as const
+}
+export const disabledButtonAC = (disabled: boolean) => {
+    return {type: 'DISABLED-BUTTON', disabled} as const
 }

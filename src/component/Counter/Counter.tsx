@@ -11,6 +11,7 @@ export const Counter = () => {
     const value = useSelector((state:AppRootStateType) => state.count.value)
     const maxValue = useSelector((state:AppRootStateType) => state.count.maxValue)
     const minValue = useSelector((state:AppRootStateType) => state.count.minValue)
+    const disabled = useSelector((state:AppRootStateType) => state.count.disabled)
     const dispatch = useDispatch()
 
     const setIncrement = () => dispatch(setIncrementAC())
@@ -29,8 +30,8 @@ export const Counter = () => {
                     : <div className = {errorMonitor ? `${s.errorCount} ${s.count}` : s.count } > {value}</div>}
             </div>
             <div className={s.button_container}>
-                <Button title={"inc"} onClick={setIncrement} disabled={disabledInc()}/>
-                <Button title={"reset"} onClick={resetValue} disabled={disabledReset()}/>
+                <Button title={"inc"} onClick={setIncrement} disabled={disabledInc() || disabled}/>
+                <Button title={"reset"} onClick={resetValue} disabled={disabledReset() || disabled}/>
             </div>
         </div>
     )
