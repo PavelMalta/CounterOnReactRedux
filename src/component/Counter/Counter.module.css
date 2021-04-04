@@ -46,3 +46,9 @@
     font-size: 30px;
     font-weight: bold;
 }
+
+.description {
+    font-size: 25px;
+    color: darkgray;
+    font-weight: bold;
+}

@@ -2,15 +2,21 @@ import React from "react";
 import s from "./Setting.module.css"
 import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../state/store";
+import {useDispatch} from "react-redux";
 import {disabledButtonAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from "../../state/count-reducer";
 
-export const Setting = () => {
-    const maxValue = useSelector((state: AppRootStateType) => state.count.maxValue)
-    const minValue = useSelector((state:AppRootStateType) => state.count.minValue)
-    const error = useSelector((state:AppRootStateType) => state.count.error)
-    const disabled = useSelector((state:AppRootStateType) => state.count.disabled)
+type SettingPropsType = {
+    value: null | number
+    minValue: number
+    maxValue: number
+    error: boolean
+    disabled: boolean
+}
+
+export const Setting: React.FC<SettingPropsType> = (
+    {value,minValue, maxValue, error, disabled}
+    ) => {
+
     const dispatch = useDispatch()
 
     const setMaxValue = (maxValue: number) => {

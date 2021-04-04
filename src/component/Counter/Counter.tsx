@@ -1,17 +1,21 @@
 import React from "react";
-import { Button } from "../Button/Button";
+import {Button} from "../Button/Button";
 import s from "./Counter.module.css"
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../state/store";
+import {useDispatch} from "react-redux";
 import {resetValueAC, setIncrementAC} from "../../state/count-reducer";
 
-export const Counter = () => {
+type CounterPropsType = {
+    value: null | number
+    minValue: number
+    maxValue: number
+    error: boolean
+    disabled: boolean
+}
 
-    const error = useSelector((state: AppRootStateType) => state.count.error)
-    const value = useSelector((state:AppRootStateType) => state.count.value)
-    const maxValue = useSelector((state:AppRootStateType) => state.count.maxValue)
-    const minValue = useSelector((state:AppRootStateType) => state.count.minValue)
-    const disabled = useSelector((state:AppRootStateType) => state.count.disabled)
+export const Counter: React.FC<CounterPropsType> = (
+    {value, minValue, maxValue, error, disabled}
+) => {
+
     const dispatch = useDispatch()
 
     const setIncrement = () => dispatch(setIncrementAC())
@@ -27,7 +31,9 @@ export const Counter = () => {
             <div className={s.monitor}>
                 {error
                     ? <div className={s.error}>Incorrect value!</div>
-                    : <div className = {errorMonitor ? `${s.errorCount} ${s.count}` : s.count } > {value}</div>}
+                    : disabled
+                        ? <div className={s.description}>enter values and press 'set'</div>
+                        : <div className={errorMonitor ? `${s.errorCount} ${s.count}` : s.count}> {value}</div>}
             </div>
             <div className={s.button_container}>
                 <Button title={"inc"} onClick={setIncrement} disabled={disabledInc() || disabled}/>
