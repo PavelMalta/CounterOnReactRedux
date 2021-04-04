@@ -19,12 +19,14 @@ export const Counter = () => {
     const disabledInc = () => value === maxValue
     const disabledReset = () => value === minValue
 
+    const errorMonitor = disabledInc()
+
     return (
         <div className={s.setting}>
             <div className={s.monitor}>
                 {error
                     ? <div className={s.error}>Incorrect value!</div>
-                    : <div className={s.count}>{value}</div>}
+                    : <div className = {errorMonitor ? `${s.errorCount} ${s.count}` : s.count } > {value}</div>}
             </div>
             <div className={s.button_container}>
                 <Button title={"inc"} onClick={setIncrement} disabled={disabledInc()}/>

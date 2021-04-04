@@ -26,6 +26,11 @@
     color: darkgray;
 }
 
+.errorCount {
+    font-size: 100px;
+    color: tomato;
+}
+
 .button_container {
     height: 25%;
     border: 2px solid darkgray;

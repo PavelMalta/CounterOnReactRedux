@@ -20,7 +20,7 @@ export const countReducer = (state: InitialStateType = initialState, action: Act
         case "SET-INCREMENT":
             let newValue = state.value
             if (newValue != null && newValue < state.maxValue) {
-                newValue = newValue + 1
+                newValue += 1
             }
             return {...state, value: newValue}
         case "RESET-VALUE":
