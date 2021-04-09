@@ -10,7 +10,7 @@ type InputPropsType = {
 export const Input = (props: InputPropsType) => {
 
     const setValue = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setValue(+e.currentTarget.value)
+        props.setValue(e.currentTarget.valueAsNumber)
     }
     const className = props.error ? s.errorInput : s.superInput
 

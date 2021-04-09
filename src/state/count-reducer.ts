@@ -1,9 +1,9 @@
 const initialState = {
-    maxValue: 0 as number,
-    minValue: 0 as number,
+    maxValue: 0,
+    minValue: 0,
     value: null as null | number,
-    error: false as boolean,
-    disabled: false as boolean
+    error: false,
+    disabled: false
 }
 
 type InitialStateType = typeof initialState
@@ -42,24 +42,10 @@ type ActionType = ReturnType<typeof setMaxValueAC>
     | ReturnType<typeof resetValueAC>
     | ReturnType<typeof disabledButtonAC>
 
-export const setMaxValueAC = (maxValue: number) => {
-    return {type: 'SET-MAX-VALUE', maxValue} as const
-}
-export const setMinValueAC = (minValue: number) => {
-    return {type: 'SET-MIN-VALUE', minValue} as const
-}
-export const setErrorAC = (error: boolean) => {
-    return {type: 'SET-ERROR', error} as const
-}
-export const setValueAC = (value: number) => {
-    return {type: 'SET-VALUE', value} as const
-}
-export const setIncrementAC = () => {
-    return {type: 'SET-INCREMENT'} as const
-}
-export const resetValueAC = () => {
-    return {type: 'RESET-VALUE'} as const
-}
-export const disabledButtonAC = (disabled: boolean) => {
-    return {type: 'DISABLED-BUTTON', disabled} as const
-}
+export const setMaxValueAC = (maxValue: number) => ({type: 'SET-MAX-VALUE', maxValue} as const)
+export const setMinValueAC = (minValue: number) => ({type: 'SET-MIN-VALUE', minValue} as const)
+export const setErrorAC = (error: boolean) => ({type: 'SET-ERROR', error} as const)
+export const setValueAC = (value: number) => ({type: 'SET-VALUE', value} as const)
+export const setIncrementAC = () => ({type: 'SET-INCREMENT'} as const)
+export const resetValueAC = () => ({type: 'RESET-VALUE'} as const)
+export const disabledButtonAC = (disabled: boolean) => ({type: 'DISABLED-BUTTON', disabled} as const)

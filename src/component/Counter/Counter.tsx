@@ -21,10 +21,8 @@ export const Counter: React.FC<CounterPropsType> = (
     const setIncrement = () => dispatch(setIncrementAC())
     const resetValue = () => dispatch(resetValueAC())
 
-    const disabledInc = () => value === maxValue
-    const disabledReset = () => value === minValue
-
-    const errorMonitor = disabledInc()
+    const disabledIncButton = value === maxValue || disabled
+    const disabledResetButton = value === minValue || disabled
 
     return (
         <div className={s.setting}>
@@ -33,11 +31,11 @@ export const Counter: React.FC<CounterPropsType> = (
                     ? <div className={s.error}>Incorrect value!</div>
                     : disabled
                         ? <div className={s.description}>enter values and press 'set'</div>
-                        : <div className={errorMonitor ? `${s.errorCount} ${s.count}` : s.count}> {value}</div>}
+                        : <div className={value === maxValue ? `${s.errorCount} ${s.count}` : s.count}> {value}</div>}
             </div>
             <div className={s.button_container}>
-                <Button title={"inc"} onClick={setIncrement} disabled={disabledInc() || disabled}/>
-                <Button title={"reset"} onClick={resetValue} disabled={disabledReset() || disabled}/>
+                <Button title={"inc"} onClick={setIncrement} disabled={disabledIncButton}/>
+                <Button title={"reset"} onClick={resetValue} disabled={disabledResetButton}/>
             </div>
         </div>
     )
